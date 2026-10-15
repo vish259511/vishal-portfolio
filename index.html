@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Vishal Rawat · Frontend Developer</title>
+    <meta name="description"
+        content="Portfolio of Vishal Rawat, frontend developer working with React Native and ReactJS.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --card: #fff;
+            --ink: #0f1b2d;
+            --mute: #475569;
+            --line: #dbe1ea;
+            --violet: #1d4ed8;
+            --pink: #0d9488;
+            --sun: #dbeafe;
+            --d: 'Bricolage Grotesque', system-ui, sans-serif;
+            --b: 'Plus Jakarta Sans', system-ui, sans-serif
+        }
+
+        :root.dark {
+            --bg: #0b1220;
+            --card: #131c2e;
+            --ink: #e8edf5;
+            --mute: #b4bfd0;
+            --line: #24304a;
+            --violet: #60a5fa;
+            --pink: #2dd4bf;
+            --sun: #1e3a5f
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font: 400 19px/1.75 var(--b);
+            transition: background .4s, color .4s;
+            padding-top: env(safe-area-inset-top, 0)
+        }
+
+        a {
+            color: inherit
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--pink);
+            outline-offset: 3px;
+            border-radius: 6px
+        }
+
+        .w {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 22px
+        }
+
+        section {
+            padding: 80px 0
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--d);
+            letter-spacing: -.01em;
+            line-height: 1.15
+        }
+
+        h2 {
+            font-size: clamp(2.3rem, 6vw, 3.6rem);
+            font-weight: 800;
+            margin-bottom: 14px
+        }
+
+        .sub {
+            color: var(--mute);
+            font-size: 1.1rem;
+            margin-bottom: 36px;
+            max-width: 60ch
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: color-mix(in srgb, var(--bg) 85%, transparent);
+            backdrop-filter: blur(10px)
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            height: 62px
+        }
+
+        nav b {
+            font: 800 1.2rem var(--d);
+            margin-right: auto
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--mute);
+            font-size: 1.05rem;
+            font-weight: 500
+        }
+
+        nav a:hover {
+            color: var(--ink)
+        }
+
+        .mode {
+            border: 2px solid var(--ink);
+            background: none;
+            color: var(--ink);
+            border-radius: 30px;
+            padding: 4px 14px;
+            font: inherit;
+            font-size: 1rem;
+            cursor: pointer
+        }
+
+        @media(max-width:640px) {
+            nav a {
+                display: none
+            }
+        }
+
+        /* hero */
+        .hero {
+            padding: 70px 0 40px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hi {
+            font-size: 1.05rem;
+            display: inline-block;
+            background: var(--sun);
+            color: var(--ink);
+            border-radius: 30px;
+            padding: 5px 16px;
+            font-weight: 500;
+            margin-bottom: 22px
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 12vw, 7.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 6px
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            transition: transform .25s
+        }
+
+        .hero h1 span:hover {
+            transform: translateY(-12px) rotate(-6deg);
+            color: var(--pink)
+        }
+
+        .role {
+            font: 600 clamp(1.5rem, 4vw, 2.3rem)/1.3 var(--d);
+            margin: 20px 0
+        }
+
+        .role em {
+            font-style: normal;
+            color: var(--violet);
+            border-right: 3px solid var(--pink);
+            padding-right: 4px
+        }
+
+        .hero .sub {
+            font-size: 1.25rem
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 26px;
+            border-radius: 14px;
+            background: var(--ink);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 10px 10px 0;
+            border: 0;
+            cursor: pointer;
+            font-size: 1rem
+        }
+
+        .btn.o {
+            background: none;
+            color: var(--ink);
+            border: 2px solid var(--ink)
+        }
+
+        .stk {
+            position: absolute;
+            padding: 10px 18px;
+            border-radius: 14px;
+            font: 800 1rem var(--d);
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+            box-shadow: 4px 4px 0 var(--violet);
+            border: 2px solid var(--ink);
+            color: #0f1b2d
+        }
+
+        .stk:active {
+            cursor: grabbing
+        }
+
+        @media(max-width:760px) {
+            .stk {
+                display: none
+            }
+        }
+
+        .hint {
+            font-size: 1rem;
+            color: var(--mute)
+        }
+
+        /* work: horizontal cards */
+        .rail {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 6px 22px 22px;
+            margin: 0 -22px
+        }
+
+        .pc {
+            flex: 0 0 min(320px, 82vw);
+            scroll-snap-align: start;
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 22px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 6px 6px 0 var(--c, var(--violet))
+        }
+
+        .pc .top {
+            height: 110px;
+            border-radius: 14px;
+            background: var(--c, var(--violet));
+            display: grid;
+            place-items: center;
+            font: 800 2.4rem var(--d);
+            color: #fff
+        }
+
+        .pc h3 {
+            font-size: 1.6rem
+        }
+
+        .pc p {
+            color: var(--mute);
+            font-size: 1.05rem;
+            flex: 1
+        }
+
+        .pc ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 0;
+            list-style: none
+        }
+
+        .pc li {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 3px 14px;
+            font-size: .95rem
+        }
+
+        .pc a {
+            font-weight: 600;
+            font-size: 1.05rem
+        }
+
+        /* featured project */
+        .feat {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 28px;
+            align-items: start
+        }
+
+        @media(max-width:820px) {
+            .feat {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .feat h3 {
+            font-size: 2.2rem;
+            margin-bottom: 12px
+        }
+
+        .feat .lead {
+            color: var(--mute);
+            font-size: 1.15rem
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 22px;
+            margin: 24px 0;
+            padding-top: 20px;
+            border-top: 2px solid var(--line)
+        }
+
+        .facts dt {
+            color: var(--mute);
+            font-weight: 500
+        }
+
+        .facts dd {
+            margin: 0;
+            font-weight: 600
+        }
+
+        .shot {
+            background: #1d4ed8;
+            color: #fff;
+            border: 2px solid var(--ink);
+            border-radius: 22px;
+            min-height: 260px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 24px;
+            box-shadow: 8px 8px 0 var(--pink);
+            font: 800 1.5rem/1.3 var(--d)
+        }
+
+        .shot small {
+            display: block;
+            font: 500 1rem var(--b);
+            opacity: .85;
+            margin-top: 8px
+        }
+
+        .fbox {
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 22px;
+            padding: 24px;
+            margin-top: 22px
+        }
+
+        .fbox h4 {
+            font: 800 1.3rem var(--d);
+            margin-bottom: 12px
+        }
+
+        .fbox ul {
+            margin-left: 22px
+        }
+
+        .fbox li {
+            margin-bottom: 6px
+        }
+
+        .res {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-top: 22px
+        }
+
+        .res div {
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            padding: 16px;
+            font: 800 2rem/1.1 var(--d)
+        }
+
+        .res small {
+            display: block;
+            font: 500 1rem var(--b);
+            color: var(--mute);
+            margin-top: 4px
+        }
+
+        /* featured product modules */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            padding: 20px;
+            min-width: 0;
+        }
+
+        .feature-card .feature-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--sun);
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+        }
+
+        .feature-card h4 {
+            font: 800 1.2rem/1.25 var(--d);
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--mute);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-note {
+            margin-top: 16px;
+            color: var(--mute);
+            font-size: .95rem;
+        }
+
+        .shot .mock-dashboard {
+            width: 100%;
+            max-width: 370px;
+            text-align: left;
+            font: 500 .9rem/1.4 var(--b);
+        }
+
+        .mock-dashboard .mock-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .mock-dashboard .mock-badge {
+            border-radius: 20px;
+            padding: 5px 9px;
+            background: rgba(255, 255, 255, .18);
+            font-size: .75rem;
+        }
+
+        .mock-dashboard .mock-panel {
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 14px;
+            padding: 14px;
+            margin-top: 10px;
+        }
+
+        .mock-dashboard .mock-line {
+            height: 8px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .65);
+            margin: 9px 0;
+        }
+
+        .mock-dashboard .mock-line.short {
+            width: 58%;
+        }
+
+        .mock-dashboard .mock-line.medium {
+            width: 78%;
+        }
+
+        @media(max-width:760px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* about bento */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .bx {
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 22px;
+            padding: 22px
+        }
+
+        .bx.big {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: #1d4ed8;
+            color: #fff;
+            border-color: #1d4ed8
+        }
+
+        .bx.n {
+            font: 800 3.4rem/1.1 var(--d)
+        }
+
+        .bx small {
+            display: block;
+            font: 500 1.05rem var(--b);
+            color: var(--mute)
+        }
+
+        .bx.wide {
+            grid-column: 1/-1
+        }
+
+        .bx.big p {
+            font-size: 1.2rem;
+            line-height: 1.7
+        }
+
+        @media(max-width:760px) {
+            .bento {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        /* toolbox */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px
+        }
+
+        .tab {
+            border: 2px solid var(--ink);
+            background: none;
+            color: var(--ink);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font: inherit;
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer
+        }
+
+        .tab[aria-pressed=true] {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: var(--bg)
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none
+        }
+
+        .pills li {
+            background: var(--card);
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 600
+        }
+
+        /* journey accordion */
+        details {
+            border-bottom: 2px solid var(--line);
+            padding: 18px 0
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            font: 800 1.7rem/1.25 var(--d)
+        }
+
+        summary::after {
+            content: "+";
+            color: var(--pink);
+            font-size: 1.6rem
+        }
+
+        details[open] summary::after {
+            content: "–"
+        }
+
+        summary small {
+            font: 500 1.05rem var(--b);
+            margin-top: 4px;
+            color: var(--mute);
+            display: block;
+            letter-spacing: 0
+        }
+
+        details ul {
+            margin: 16px 0 0 22px;
+            max-width: 62ch;
+            font-size: 1.1rem
+        }
+
+        details li {
+            margin-bottom: 6px
+        }
+
+        /* contact */
+        .say {
+            background: var(--ink);
+            color: var(--bg);
+            border-radius: 30px;
+            padding: clamp(28px, 6vw, 64px);
+            text-align: center
+        }
+
+        .say h2 {
+            font-size: clamp(2.3rem, 6vw, 4rem);
+            margin-bottom: 26px
+        }
+
+        .say .btn {
+            background: #2dd4bf;
+            color: #0f1b2d;
+            font-size: 1.1rem;
+            font-weight: 600
+        }
+
+        .say .row {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap
+        }
+
+        .social-links {
+            align-items: center;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: 2px solid currentColor;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform .2s, background .2s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: var(--pink);
+        }
+
+        .social-links svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        footer {
+            padding: 30px 0;
+            color: var(--mute);
+            font-size: 1rem;
+            text-align: center
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important
+            }
+        }
+
+        .logo {
+            font: 800 1.3rem var(--d);
+            letter-spacing: -0.05em;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="w">
+            <nav>
+                <b class="logo">&lt;VR /&gt;</b><a href="#work">Work</a><a href="#featured">Featured</a><a
+                    href="#about">About</a><a href="#tools">Toolbox</a><a href="#journey">Journey</a><a
+                    href="#hello">Contact</a>
+                <button class="mode" id="mode" aria-label="Switch light and dark theme">Dark</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="w" id="stage">
+                <span class="hi">Open to new opportunities</span>
+                <h1 id="name" aria-label="Vishal Rawat">Vishal Rawat</h1>
+                <p class="role">I build <em id="type"></em></p>
+                <p class="sub">Frontend developer with deep experience in React Native and ReactJS. I lead teams and
+                    projects, work in Agile, and ship efficient, high-quality products.</p>
+                <a class="btn" href="#work">See my work</a><a class="btn o" href="#hello">Say hello</a>
+                <p class="hint">Tip: drag the stickers around.</p>
+                <div class="stk" style="right:9%;top:60px;background:#dbeafe;transform:rotate(6deg)">React Native</div>
+                <div class="stk" style="right:22%;top:170px;background:#ccfbf1;transform:rotate(-5deg)">ReactJS</div>
+                <div class="stk" style="right:6%;top:250px;background:#e2e8f0;transform:rotate(3deg)">TypeScript</div>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="w">
+                <h2>Selected work</h2>
+                <p class="sub">Swipe or scroll sideways through the projects I am proud of.</p>
+                <div class="rail" id="rail" tabindex="0" aria-label="Projects"></div>
+            </div>
+        </section>
+
+        <section id="featured">
+            <div class="w">
+                <h2>Featured Product</h2>
+                <p class="sub">Digital agronomy tools that help agricultural teams manage field workflows and make
+                    data-informed decisions.</p>
+
+                <div class="feat">
+                    <div>
+                        <h3>TELUS Agronomy Software</h3>
+                        <p class="lead">A digital agronomy platform supporting growers, agronomists and agricultural
+                            businesses with crop planning, field scouting, soil sampling and connected field data.</p>
+                        <dl class="facts">
+                            <dt>Product</dt>
+                            <dd>Digital agronomy & field management</dd>
+                            <dt>Company</dt>
+                            <dd>TELUS Agriculture & Consumer Goods</dd>
+                            <dt>Platform</dt>
+                            <dd>React Native + Expo · iOS · Android</dd>
+                            <dt>Users</dt>
+                            <dd>Agronomists, crop advisors, growers and agricultural teams</dd>
+                            <dt>My role</dt>
+                            <dd>Application Development Lead · Team of 30 to 40 developers</dd>
+                            <dt>Product website</dt>
+                            <dd><a href="https://www.telus.com/agcg/en/agriculture/agronomy-software" target="_blank"
+                                    rel="noopener noreferrer">View TELUS Agronomy</a></dd>
+                        </dl>
+                        <ul class="pills" aria-label="Technology and domain tags">
+                            <li>React Native</li>
+                            <li>Expo</li>
+                            <li>REST APIs</li>
+                            <li>Digital Agronomy</li>
+                            <li>Mobile Workflows</li>
+                        </ul>
+                    </div>
+                    <div class="shot" role="img"
+                        aria-label="Illustrative agronomy dashboard concept, not a screenshot of the production application">
+                        <div class="mock-dashboard">
+                            <div class="mock-top">
+                                <span>Field overview</span>
+                                <span class="mock-badge">Agronomy</span>
+                            </div>
+                            <div class="mock-panel">
+                                <strong>Field activity</strong>
+                                <div class="mock-line"></div>
+                                <div class="mock-line medium"></div>
+                                <div class="mock-line short"></div>
+                            </div>
+                            <div class="mock-panel">
+                                <strong>Scouting & sampling</strong>
+                                <div class="mock-line medium"></div>
+                                <div class="mock-line short"></div>
+                            </div>
+                            <small>Illustrative UI concept · not a production screenshot</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-grid" aria-label="Product features">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🌱</div>
+                        <h4>Crop planning & records</h4>
+                        <p>Organize crop plans, field information and digital records to support day-to-day agronomy
+                            workflows.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📍</div>
+                        <h4>Digital field scouting</h4>
+                        <p>Record field observations and crop conditions to help advisors and growers make informed
+                            decisions.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🧪</div>
+                        <h4>Soil sampling</h4>
+                        <p>Support sampling workflows with sampling points, laboratory sheets, labels and field tasks.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🚜</div>
+                        <h4>Machine data</h4>
+                        <p>Connect supported agricultural equipment data to improve field-operation records and reduce
+                            manual entry.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📊</div>
+                        <h4>Insights & analytics</h4>
+                        <p>Use agricultural and operational data to support analysis, planning and better-informed
+                            decisions.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🔒</div>
+                        <h4>Integration & compliance</h4>
+                        <p>Support secure access, compliance-related documentation and data exchange with external
+                            systems.</p>
+                    </article>
+                </div>
+
+                <div class="fbox">
+                    <h4>My role & responsibilities</h4>
+                    <ul>
+                        <li>Lead a team of five developers within a larger cross-functional project while contributing
+                            hands-on to development.</li>
+                        <li>Build and maintain application features from requirements through implementation and
+                            release.</li>
+                        <li>Investigate complex bugs and performance issues, and improve code quality through
+                            refactoring and code reviews.</li>
+                        <li>Coordinate with teammates and communicate with the client about requirements, priorities and
+                            delivery progress.</li>
+                    </ul>
+                </div>
+
+                <div class="fbox">
+                    <h4>Technical overview</h4>
+                    <ul>
+                        <li><strong>Mobile:</strong> React Native and Expo for iOS and Android, as applicable to the
+                            application.</li>
+                        <li><strong>Integration:</strong> REST API-based connectivity can support data exchange with
+                            enterprise and partner systems.</li>
+                        <li><strong>Product domain:</strong> Field data, crop records, scouting, soil sampling and
+                            agricultural workflows.</li>
+                        <li><strong>Engineering focus:</strong> Maintainable components, reliable API handling,
+                            performance, testing and production support.</li>
+                    </ul>
+                    <p class="product-note">Product capabilities are summarized from the public TELUS Agronomy website.
+                        Technical implementation details above describe the portfolio context and should be adjusted to
+                        match the exact systems and work you personally handled.</p>
+                </div>
+
+                <div class="fbox">
+                    <h4>Business value</h4>
+                    <p>Digital agronomy workflows can reduce manual administration, improve access to field records,
+                        strengthen collaboration between growers and advisors, and support data-informed agricultural
+                        decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="w">
+                <h2>About me</h2>
+                <p class="sub">A quick snapshot.</p>
+                <div class="bento">
+                    <div class="bx big">
+                        <h3 style="font-size:1.8rem;margin-bottom:14px">Hi, I'm Vishal</h3>
+                        <p>I build mobile and web apps with React Native and ReactJS, and I enjoy leading teams from
+                            idea to a product people use. I work in Agile, care about code quality and timely delivery,
+                            and also have working knowledge of native development.</p>
+                    </div>
+                    <div class="bx n">10<small>years of experience</small></div>
+                    <div class="bx n">6<small>projects featured here</small></div>
+                    <div class="bx n">3<small>companies</small></div>
+                    <div class="bx"><b>Based in</b><small>Noida, India</small></div>
+                    <div class="bx wide"><b>Award</b><small>ACES Every Day Award, 2023 and 2024, for exceptional
+                            performance and innovative solutions.</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools">
+            <div class="w">
+                <h2>Toolbox</h2>
+                <p class="sub">What I reach for, grouped by job.</p>
+                <div class="tabs" id="tabs" role="group" aria-label="Tool groups"></div>
+                <ul class="pills" id="pills"></ul>
+            </div>
+        </section>
+
+        <section id="journey">
+            <div class="w">
+                <h2>Journey</h2>
+                <p class="sub">Open a role to see what I did there.</p>
+                <details open>
+                    <summary><span>Telus Digital<small>Application Development Lead · Nov 2025 to Present ·
+                                Remote, Noida (UP)</small></span></summary>
+                    <ul>
+                        <li>Lead a team of five developers inside a larger 30 to 40 person project, while still writing
+                            code every day.</li>
+                        <li>Build features from requirement to release and fix hard performance problems and bugs.</li>
+                        <li>Refactor older code into clean, reusable components backed by tests.</li>
+                        <li>Review pull requests, unblock teammates and give technical direction on their tickets.</li>
+                        <li>Handle client communication on requirements, priorities and progress.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary><span>StraViso<small>Senior Software Engineer · 2022 to Nov ·
+                                Remote, Frisco, (Texas)</small></span></summary>
+                    <ul>
+                        <li>Built TechX, a React Native app (Redux, Saga) with real-time location tracking and fleet
+                            management.</li>
+                        <li>Delivered the Field Cloud mobile toolkit: job assignments, inventory tracking, billing and
+                            product training on the field tech's phone.</li>
+                        <li>Made it easier to start, complete and document a call, and kept chat agents, the back
+                            office, field agents and customers in sync.</li>
+                        <li>Replaced paperwork with online forms for appointments.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary><span>Zivost Technologies<small>Senior Developer · 2017 to 2022 · Noida (UP)</small></span>
+                    </summary>
+                    <ul>
+                        <li>Pleb: led a team of 5 developers and shipped a dating app with real-time messaging and
+                            notifications.</li>
+                        <li>ClassCalc: planned the frontend architecture for the ReactJS web portal and React Native
+                            app, with a focus on quality and timely delivery.</li>
+                        <li>FoodJam: led the team and solved complex video SDK integration issues.</li>
+                        <li>Zippee: built a learning and quiz app with a team of 3.</li>
+                        <li>Fleet Platform: worked with 15 remote developers and the client on logistics and vehicle
+                            management apps.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary><span>Meander Software<small>Software Developer · 2016 to 2017 ·
+                                Delhi</small></span></summary>
+                    <ul>
+                        <li>Developed and maintained PHP code.</li>
+                        <li>Created and integrated APIs, web services and third-party libraries.</li>
+                        <li>Designed database schemas and the application logic around them.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary><span>Education<small>BCA, KCMT College, Bareilly (UP) · 2013 to 2016</small></span>
+                    </summary>
+                    <ul>
+                        <li>Bachelor of Computer Application.</li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+
+        <section id="hello">
+            <div class="w">
+                <div class="say">
+                    <h2>Have an idea? Let's build it.</h2>
+                    <button class="btn" id="copy">Copy my email</button>
+                    <div class="row"><a href="mailto:vrrawat.2525@gmail.com">vrrawat.2525@gmail.com</a></div>
+                    <div class="row"><a href="#">+91-8881163232</a></div>
+                    <div class="row social-links" aria-label="Social links">
+                        <a href="https://www.linkedin.com/in/vishal-rawat-a1573ab7/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.68H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 9h3.56v11.45H3.56V9z" />
+                            </svg></a>
+                        <a href="https://github.com/vish2595" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 .7a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.84.24 2.87.12 3.17.76.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .7z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>© <span id="yr"></span> Vishal Rawat</footer>
+
+    <script>
+        // ---- Edit your content here ----
+        const EMAIL = "vrrawat.2525@gmail.com";
+        const ROLES = ["React Native apps.", "ReactJS web apps.", "products teams can ship."];
+        const PROJECTS = [
+            { n: "TechX", d: "Field service app with real-time location tracking and fleet management. Gives field techs job assignments, inventory, billing and online forms in one mobile toolkit.", t: ["React Native", "Redux", "Saga"], c: "#1d4ed8" },
+            { n: "Pleb", d: "A non-judgemental dating app with real-time messaging and notifications. I led a team of 5 developers from idea to usable product.", t: ["React Native", "Redux", "Saga"], c: "#0d9488", u: "https://pleb.dating" },
+            { n: "ClassCalc", d: "A digital calculator for the classroom, with a ReactJS web portal and a React Native mobile app. I planned the frontend architecture and kept quality and delivery on track.", t: ["ReactJS", "React Native"], c: "#334155", u: "https://classcalc.com/" },
+            { n: "FoodJam", d: "A food video blogging app with SDKs for video processing and editing. I led the team and solved the hardest SDK integration issues.", t: ["React Native", "Redux", "Saga"], c: "#0e7490" },
+            { n: "Zippee", d: "An interactive learning app with timed quiz contests, e-learning, assignments, video player, notifications, analytics and multiple languages. Built by a team of 3.", t: ["React Native", "Firebase"], c: "#1d4ed8" },
+            { n: "Fleet Platform", d: "Mobile and web apps for tracking, monitoring and managing vehicles and workforce in logistics. Worked remotely with a team of 15 and spoke with the client regularly.", t: ["React Native", "ReactJS"], c: "#0d9488" }];
+        const TOOLS = { "Languages": ["JavaScript", "TypeScript", "HTML & CSS"], "Frameworks": ["React", "React Native", "Redux", "Redux-Saga", "Axios", "Native development basics"], "Ways of working": ["Agile", "Project management tools", "Leadership", "Strategic planning", "Problem solving", "Code quality"] };
+        // --------------------------------
+        const $ = s => document.querySelector(s);
+        const root = document.documentElement;
+        $('#mode').onclick = () => { root.classList.toggle('dark'); $('#mode').textContent = root.classList.contains('dark') ? 'Light' : 'Dark' };
+        $('#yr').textContent = new Date().getFullYear();
+
+        // hover-able name letters
+        const nm = $('#name'); nm.innerHTML = [...nm.textContent].map(c => c === ' ' ? ' ' : `<span aria-hidden="true">${c}</span>`).join('');
+
+        // typing role
+        let ri = 0, ci = 0, del = false; const el = $('#type');
+        function tick() {
+            const w = ROLES[ri]; ci += del ? -1 : 1; el.textContent = w.slice(0, ci);
+            let t = del ? 40 : 85; if (!del && ci === w.length) { del = true; t = 1300 } else if (del && ci === 0) { del = false; ri = (ri + 1) % ROLES.length; t = 300 } setTimeout(tick, t)
+        }
+        if (matchMedia('(prefers-reduced-motion:reduce)').matches) { el.textContent = ROLES[0] } else tick();
+
+        // projects
+        $('#rail').innerHTML = PROJECTS.map(p => `<article class="pc" style="--c:${p.c}"><div class="top">${p.n[0]}</div><h3>${p.n}</h3><p>${p.d}</p><ul>${p.t.map(x => `<li>${x}</li>`).join('')}</ul>${p.u ? `<a href="${p.u}">View project</a>` : ""}</article>`).join('');
+
+        // toolbox
+        let tab = Object.keys(TOOLS)[1];
+        function drawTools() { $('#pills').innerHTML = TOOLS[tab].map(x => `<li>${x}</li>`).join('');[...$('#tabs').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.t === tab)) }
+        $('#tabs').innerHTML = Object.keys(TOOLS).map(k => `<button class="tab" data-t="${k}">${k}</button>`).join('');
+        $('#tabs').onclick = e => { if (e.target.dataset.t) { tab = e.target.dataset.t; drawTools() } }; drawTools();
+
+        // copy email
+        $('#copy').onclick = async function () { try { await navigator.clipboard.writeText(EMAIL); this.textContent = 'Copied!' } catch (e) { location.href = 'mailto:' + EMAIL } setTimeout(() => this.textContent = 'Copy my email', 1800) };
+
+        // draggable stickers
+        document.querySelectorAll('.stk').forEach(s => {
+            let ox, oy, drag = false;
+            s.onpointerdown = e => { drag = true; s.setPointerCapture(e.pointerId); ox = e.clientX - s.offsetLeft; oy = e.clientY - s.offsetTop; s.style.right = 'auto' };
+            s.onpointermove = e => { if (drag) { s.style.left = (e.clientX - ox) + 'px'; s.style.top = (e.clientY - oy) + 'px' } };
+            s.onpointerup = () => drag = false
+        });
+    </script>
+</body>
+
+</html>
